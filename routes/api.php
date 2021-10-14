@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\Catalog\ProductController;
+use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +21,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/product',[ProductController::class, 'index']);
+Route::post('/register', [RegisterController::class, 'register']);
+
+
+
+
 
 Route::post('/tokens/create', function (Request $request) {
     $user = \App\Models\User::first();
